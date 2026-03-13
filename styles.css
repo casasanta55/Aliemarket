@@ -1667,15 +1667,13 @@ footer .footer-col a:hover { color: var(--cyan); }
 
 /* ── BODY offset ─────────────────────────────────────────── */
 body.has-sidebar {
-  padding-left: var(--sb-w);
-  transition: padding-left var(--sb-trans);
+  padding-left: 0;
 }
-body.has-sidebar.sidebar-open {
-  padding-left: var(--sb-w-exp);
-}
+
 
 /* ── SIDEBAR BASE ─────────────────────────────────────────── */
 .alie-sidebar {
+  display: none !important;
   position: fixed; left: 0; top: 0; bottom: 0; z-index: 950;
   width: var(--sb-w);
   background: var(--black-mid);

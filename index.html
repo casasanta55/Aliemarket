@@ -45,7 +45,7 @@
     fbq('track', 'PageView');
   </script> -->
 </head>
-<body class="has-sidebar">
+<body class="">
 <!-- ═══════════════════════════════════════════════════════
      ALIE SIDEBAR — Barra de navegación izquierda
 ═══════════════════════════════════════════════════════ -->
@@ -1120,9 +1120,10 @@ setTimeout(updateNavActive, 300);
 // ── Buscador colapsable (móvil) ──────────────────────────
 function toggleNavSearch() {
   const wrap = document.getElementById('nav-search-wrap');
+  if (!wrap) { document.getElementById('search-input')?.focus(); return; }
   wrap.classList.toggle('open');
   if (wrap.classList.contains('open')) {
-    document.getElementById('search-input').focus();
+    document.getElementById('search-input')?.focus();
   }
 }
 
