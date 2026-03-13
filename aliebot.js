@@ -892,7 +892,11 @@ const alieBot = new AlieBotDigital();
 window.alieBot = alieBot;
 
 // ── FUNCIONES GLOBALES (acceso desde HTML) ────────────────────
-window.openAlieBot = openAlieBot;  // función global standalone
-window.toggleAlieBot  = () => window.alieBot?.openAlieBot?.();
+window.openAlieBot     = openAlieBot;
+window.alieBotWelcome  = alieBotWelcome;
+window.toggleAlieBot   = () => window.alieBot?.openAlieBot?.();
 window.sendChatMessage = (msg) => window.alieBot?.sendChatMessage?.(msg);
 window.sendQuickReply  = (label, msg) => window.alieBot?.sendQuickReply?.(label, msg);
+
+// Auto-bienvenida después de 3.5s (ahora que aliebot.js ya cargó)
+setTimeout(() => alieBotWelcome(), 3500);

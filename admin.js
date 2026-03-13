@@ -67,8 +67,8 @@ function renderDashboard() {
   const totalRevenue = orders.reduce((s,o) => s + (o.total || 0), 0);
   const carrito = window.ALIE?.state.carrito || [];
   const productos = window.ALIE?.state.productos || [];
-  const prodDigitales = productos.filter(p => !p.tipo || p.tipo !== 'fisico');
-  const prodFisicos   = productos.filter(p => p.tipo === 'fisico');
+  const prodDigitales = productos;
+  const prodFisicos   = [];
   const stockTotal    = prodFisicos.reduce((s,p) => s + (p.stock || 0), 0);
 
   // Cálculo stats
@@ -175,8 +175,8 @@ function payBadge(m) {
 // ── TABLA DE PRODUCTOS ────────────────────────────────────────
 function renderProductsTable() {
   const productos = window.ALIE?.state.productos || [];
-  const prodDigitales = productos.filter(p => !p.tipo || p.tipo !== 'fisico');
-  const prodFisicos   = productos.filter(p => p.tipo === 'fisico');
+  const prodDigitales = productos;
+  const prodFisicos   = [];
   const stockTotal    = prodFisicos.reduce((s,p) => s + (p.stock || 0), 0);
 
   return `
@@ -276,17 +276,10 @@ function renderAddProduct(prod = null) {
           <label class="field-label">Tipo de producto</label>
           <select class="form-input" id="p-tipo" onchange="toggleFisicoFields(this.value)">
             <option value="digital" ${!p.tipo||p.tipo==='digital'?'selected':''}>📲 Digital (acceso inmediato)</option>
-            <option value="fisico"  ${p.tipo==='fisico'?'selected':''}>📦 Físico (entrega a domicilio)</option>
+
           </select>
         </div>
 
-        <!-- Campos físico -->
-        <div id="fisico-fields" style="${p.tipo==='fisico'?'':'display:none'}">
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-            <div class="form-group">
-              <label class="field-label">Stock (unidades)</label>
-              <input class="form-input" id="p-stock" type="number" min="0" value="${p.stock!==999?p.stock:0}" placeholder="0">
-            </div>
             <div class="form-group">
               <label class="field-label">Tiempo entrega</label>
               <input class="form-input" id="p-entrega" value="${p.entrega||'Por coordinar'}" placeholder="Por coordinar">

@@ -74,30 +74,8 @@ class StoreToolbar {
         <button class="tb-cat" data-cat="bundle">
           <span class="tb-cat-icon">🚀</span> Bundles
         </button>
-        <div class="tb-separator">|</div>
-        <button class="tb-cat" data-cat="tecnologia">
-          <span class="tb-cat-icon">📱</span> Tecnología
-        </button>
-        <button class="tb-cat" data-cat="accesorios">
-          <span class="tb-cat-icon">🎧</span> Accesorios
-        </button>
-        <button class="tb-cat" data-cat="electrodomesticos">
-          <span class="tb-cat-icon">⚡</span> Electrodomésticos
-        </button>
-        <button class="tb-cat" data-cat="solar">
-          <span class="tb-cat-icon">☀️</span> Energía Solar
-        </button>
-        <button class="tb-cat" data-cat="hogar">
-          <span class="tb-cat-icon">🏠</span> Hogar
-        </button>
-        <button class="tb-cat" data-cat="ropa">
-          <span class="tb-cat-icon">👕</span> Ropa & Moda
-        </button>
-        <button class="tb-cat" data-cat="alimentos">
-          <span class="tb-cat-icon">🛒</span> Alimentos
-        </button>
-        <button class="tb-cat" data-cat="ofertas-fisicas">
-          <span class="tb-cat-icon">🔥</span> Ofertas físicas
+        <button class="tb-cat" data-cat="negocios">
+          <span class="tb-cat-icon">💸</span> Afiliados & IA
         </button>
       </div>
 

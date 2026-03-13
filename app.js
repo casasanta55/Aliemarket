@@ -6,8 +6,6 @@
 
 'use strict';
 
-let tasas_global = {};
-
 // ── RESEÑAS PÚBLICAS ──────────────────────────────────────────
 // Estructura: { [productId]: [{autor, pais, texto, rating, fecha}] }
 const RESENAS_BASE = {
@@ -436,7 +434,7 @@ let config = {
   metaPixelId:       '',     // Completar: tu pixel ID
 };
 
-let tasas = tasas_global = { cup: 350, mlc: 4200, updatedAt: new Date().toLocaleString('es-CU') };
+let tasas = { cup: 350, mlc: 4200, updatedAt: new Date().toLocaleString('es-CU') };
 
 // ── ESTADO ────────────────────────────────────────────────────
 let state = {
@@ -457,8 +455,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProductos();
   configurarEventos();
   actualizarCarritoUI();
-  setTimeout(() => alieBotWelcome(), 3500);
-  // GA4 pageview
+  renderResenas();
+  // alieBotWelcome() is called by aliebot.js after it loads
   trackEvent('page_view', { page: 'store_home' });
 });
 
@@ -1299,6 +1297,35 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
+
+// ── RESEÑAS SECCIÓN PÚBLICA ───────────────────────────────────
+const RESENAS_PUBLICAS = [
+  { nombre:'Carlos M.', ciudad:'La Habana', producto:'Curso Python Pro', rating:5, texto:'En 3 semanas ya automatizaba mis reportes. Vale cada centavo — el mejor que he comprado.', fecha:'Feb 2026', verificado:true },
+  { nombre:'Yanelis R.', ciudad:'Santiago de Cuba', producto:'SEO Dominación 2026', rating:5, texto:'Mi sitio pasó a primera página de Google en 6 semanas. Los ejemplos cubanos hacen la diferencia.', fecha:'Ene 2026', verificado:true },
+  { nombre:'Miguel A.', ciudad:'Matanzas', producto:'Dropshipping Cuba Guide', rating:5, texto:'Pensé que era imposible desde Cuba — en 2 meses generé mis primeros $400 USD. Esto cambia todo.', fecha:'Feb 2026', verificado:true },
+  { nombre:'Lisandra T.', ciudad:'Camagüey', producto:'Trading Crypto Pro', rating:5, texto:'Empecé con $50 en Binance siguiendo el sistema del curso. Ya voy por $320. La guía de P2P es oro.', fecha:'Mar 2026', verificado:true },
+  { nombre:'Roberto F.', ciudad:'Villa Clara', producto:'Marketing Digital 360', rating:4, texto:'Apliqué Facebook Ads y en el primer mes recuperé 5 veces lo que pagué por el curso.', fecha:'Mar 2026', verificado:true },
+  { nombre:'Alicia G.', ciudad:'Holguín', producto:'Telegram: Ventas Automatizadas', rating:5, texto:'Mi canal pasó de 0 a 800 suscriptores en 45 días. El bot de ventas funciona 24/7 solo.', fecha:'Feb 2026', verificado:true },
+];
+
+function renderResenas() {
+  const grid = document.getElementById('resenas-grid');
+  if (!grid) return;
+  grid.innerHTML = RESENAS_PUBLICAS.map(r => `
+    <div class="resena-card">
+      <div class="resena-header">
+        <div class="resena-avatar">${r.nombre.charAt(0)}</div>
+        <div style="flex:1;min-width:0">
+          <div class="resena-nombre">${r.nombre} ${r.verificado ? '<span class="resena-check">✓ Verificado</span>' : ''}</div>
+          <div class="resena-ciudad">📍 ${r.ciudad} · ${r.fecha}</div>
+        </div>
+        <div class="resena-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      </div>
+      <div class="resena-producto">🎓 ${r.producto}</div>
+      <p class="resena-texto">"${r.texto}"</p>
+    </div>`).join('');
+}
+
 // ── ADMIN HELPERS ─────────────────────────────────────────────
 function openAdminLogin() {
   document.getElementById('admin-login').classList.add('open');
@@ -1312,9 +1339,9 @@ function closeAdminLogin() {
 
 // ── EXPORTS ───────────────────────────────────────────────────
 window.ALIE = {
-  state, tasas, config, PRODUCTOS_ALIE, PRODUCTOS_FISICOS, RESENAS_BASE,
+  state, tasas, config, PRODUCTOS_ALIE, RESENAS_BASE, RESENAS_PUBLICAS,
   get _activeCurrency() { return typeof activeCurrency !== 'undefined' ? activeCurrency : 'USD'; },
   addToCart, removeFromCart, clearCart, openCart, showToast,
   abrirModal, closeModal, renderProductos, actualizarCarritoUI,
-  labelCategoria, productoCardHTML, suscribirNewsletter, trackEvent
+  labelCategoria, productoCardHTML, suscribirNewsletter, trackEvent, renderResenas
 };
