@@ -1,0 +1,15 @@
+{
+  "name": "ALIEMARKET — Marketplace #1 Cuba",
+  "short_name": "ALIEMARKET",
+  "description": "Cursos digitales, tecnología, electrodomésticos y más. Marketplace cubano 2026.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050810",
+  "theme_color": "#00D4FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "logo-aliemarket.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["shopping", "education"],
+  "lang": "es"
+}

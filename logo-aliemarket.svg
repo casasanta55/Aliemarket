@@ -1,0 +1,108 @@
+<svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="320" height="120">
+  <defs>
+    <linearGradient id="alieGradFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#00E676"/>
+    </linearGradient>
+    <linearGradient id="starGradFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#FF3B30"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#00D4E8"/>
+      <stop offset="100%" stop-color="#00E676"/>
+    </linearGradient>
+    <filter id="glowFull" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fondo oscuro transparente (opcional) -->
+  <!-- <rect width="320" height="120" fill="#070A0F" rx="12"/> -->
+
+  <!-- ═══ SÍMBOLO HEXAGONAL ═══ -->
+  <g transform="translate(16, 10)">
+    <!-- Halo exterior sutil -->
+    <polygon points="44,2 78,21 78,59 44,78 10,59 10,21"
+      fill="rgba(0,229,255,0.04)" stroke="rgba(0,229,255,0.15)" stroke-width="1"/>
+
+    <!-- Hexágono principal -->
+    <polygon points="44,6 74,23 74,57 44,74 14,57 14,23"
+      stroke="url(#alieGradFull)" stroke-width="2" fill="rgba(0,229,255,0.05)"
+      filter="url(#glowFull)"/>
+
+    <!-- Hexágono interior decorativo -->
+    <polygon points="44,16 64,27 64,53 44,64 24,53 24,27"
+      fill="rgba(0,229,255,0.04)" stroke="url(#alieGradFull)" stroke-width=".8" opacity=".5"/>
+
+    <!-- Líneas de circuito horizontales (izquierda) -->
+    <line x1="10" y1="21" x2="2" y2="21" stroke="url(#alieGradFull)" stroke-width="1.2" opacity=".7"/>
+    <circle cx="1" cy="21" r="1.5" fill="#00E5FF" opacity=".8"/>
+    <line x1="10" y1="59" x2="2" y2="59" stroke="url(#alieGradFull)" stroke-width="1.2" opacity=".7"/>
+    <circle cx="1" cy="59" r="1.5" fill="#00E676" opacity=".8"/>
+
+    <!-- Líneas de circuito horizontales (derecha) -->
+    <line x1="78" y1="21" x2="86" y2="21" stroke="url(#alieGradFull)" stroke-width="1.2" opacity=".7"/>
+    <circle cx="87" cy="21" r="1.5" fill="#00E5FF" opacity=".8"/>
+    <line x1="78" y1="59" x2="86" y2="59" stroke="url(#alieGradFull)" stroke-width="1.2" opacity=".7"/>
+    <circle cx="87" cy="59" r="1.5" fill="#00E676" opacity=".8"/>
+
+    <!-- Línea vertical superior -->
+    <line x1="44" y1="6" x2="44" y2="0" stroke="url(#alieGradFull)" stroke-width="1" opacity=".5"/>
+    <circle cx="44" cy="0" r="1.2" fill="#00E5FF" opacity=".6"/>
+    <!-- Línea vertical inferior -->
+    <line x1="44" y1="74" x2="44" y2="80" stroke="url(#alieGradFull)" stroke-width="1" opacity=".5"/>
+    <circle cx="44" cy="80" r="1.2" fill="#00E676" opacity=".6"/>
+
+    <!-- ★ ESTRELLA CUBANA DE 5 PUNTAS ★ -->
+    <!-- Sombra/brillo -->
+    <polygon
+      points="44,22 47.5,33.5 60,33.5 50.5,40.5 54,52 44,45 34,52 37.5,40.5 28,33.5 40.5,33.5"
+      fill="rgba(255,80,0,0.25)" transform="translate(1,1)"/>
+    <!-- Estrella principal -->
+    <polygon
+      points="44,22 47.5,33.5 60,33.5 50.5,40.5 54,52 44,45 34,52 37.5,40.5 28,33.5 40.5,33.5"
+      fill="url(#starGradFull)" filter="url(#glowFull)"/>
+
+    <!-- Puntos de circuito en vértices del hexágono -->
+    <circle cx="44" cy="6"  r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+    <circle cx="74" cy="23" r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+    <circle cx="74" cy="57" r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+    <circle cx="44" cy="74" r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+    <circle cx="14" cy="57" r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+    <circle cx="14" cy="23" r="2.8" fill="url(#alieGradFull)" filter="url(#glowFull)"/>
+  </g>
+
+  <!-- ═══ TIPOGRAFÍA ═══ -->
+  <!-- ALIE (gradiente cian→verde) -->
+  <text x="116" y="62"
+    font-family="'Exo 2', 'Rajdhani', 'Orbitron', sans-serif"
+    font-weight="900" font-size="38"
+    letter-spacing="-1"
+    fill="url(#textGrad)"
+    filter="url(#softGlow)">ALIE</text>
+
+  <!-- MARKET (blanco) -->
+  <text x="200" y="62"
+    font-family="'Exo 2', 'Rajdhani', 'Orbitron', sans-serif"
+    font-weight="900" font-size="38"
+    letter-spacing="-1"
+    fill="#F0F6FF">MARKET</text>
+
+  <!-- Tagline -->
+  <text x="116" y="80"
+    font-family="'Space Mono', 'Courier New', monospace"
+    font-weight="400" font-size="9.5"
+    letter-spacing="3.5"
+    fill="#00E5FF" opacity=".65">DIGITAL · CUBA · 2026</text>
+
+  <!-- Línea decorativa bajo el texto -->
+  <line x1="116" y1="85" x2="310" y2="85"
+    stroke="url(#alieGradFull)" stroke-width=".8" opacity=".3"/>
+</svg>
