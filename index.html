@@ -52,11 +52,6 @@
 <aside id="alie-sidebar" class="alie-sidebar">
 
   <!-- Toggle (colapsar/expandir) -->
-  <button class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()" title="Expandir/Colapsar">
-    <svg class="toggle-icon-open"  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6"  x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    <svg class="toggle-icon-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-
   <!-- Branding ALIE -->
   <div class="sidebar-brand">
     <div class="sidebar-logo">
@@ -1133,12 +1128,12 @@ function toggleNavSearch() {
 
 // ── Menú móvil ───────────────────────────────────────────
 function toggleMobileMenu() {
-  document.getElementById('nav-mobile-menu').classList.toggle('open');
-  document.getElementById('nav-hamburger').classList.toggle('open');
+  document.getElementById('mobile-nav-drawer').classList.toggle('open');
+  document.getElementById('mobile-menu-btn').classList.toggle('open');
 }
 function closeMobileMenu() {
-  document.getElementById('nav-mobile-menu').classList.remove('open');
-  document.getElementById('nav-hamburger').classList.remove('open');
+  document.getElementById('mobile-nav-drawer').classList.remove('open');
+  document.getElementById('mobile-menu-btn').classList.remove('open');
 }
 
 // ── Navbar sombra al hacer scroll ───────────────────────
@@ -1148,7 +1143,7 @@ window.addEventListener('scroll', () => {
 
 // ── Logo doble-clic abre admin ───────────────────────────
 let clickCount = 0, clickTimer;
-document.getElementById('nav-logo-btn').addEventListener('click', e => {
+document.getElementById('topbar-logo-btn')?.addEventListener('click', e => {
   e.preventDefault();
   clickCount++;
   clearTimeout(clickTimer);

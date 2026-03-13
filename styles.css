@@ -1988,16 +1988,8 @@ body.has-sidebar .alie-sidebar.expanded ~ * { /* fallback */ }
     box-shadow: 4px 0 40px rgba(0,0,0,0.8);
   }
 
-  /* Botón toggle flotante en móvil */
-  .sidebar-toggle {
-    position: fixed; left: 12px; top: 14px; z-index: 960;
-    background: var(--black-mid);
-    border: 1px solid var(--cyan-border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  }
-  .alie-sidebar.expanded .sidebar-toggle {
-    left: calc(var(--sb-w-exp) - 42px);
-  }
+  /* Sidebar toggle oculto en móvil */
+  .sidebar-toggle { display: none !important; }
 
   #navbar { left: 0 !important; }
 }
